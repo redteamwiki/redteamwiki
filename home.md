@@ -9,4 +9,5 @@ dateCreated: 2021-01-08T16:51:39.351Z
 ---
 
 # Red Team Wiki
-Your content here
+
+Welcome to the Red Team Wiki.
