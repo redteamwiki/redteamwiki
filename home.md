@@ -2,13 +2,17 @@
 title: Start
 description: Red Team Wiki
 published: true
-date: 2021-01-08T19:12:30.538Z
+date: 2021-01-08T19:14:00.643Z
 tags: 
 editor: markdown
 dateCreated: 2021-01-08T16:51:39.351Z
 ---
 
 # Red Team Wiki
+
+## Intent
+
+This wiki's purpose is to become yet another public resource of centralized information regarding Red Team tactics and procedures. We hope to also focus on the reporting, and defensive aspects of each of the TTPs discussed herein.
 
 ## Contributing
 
