@@ -2,7 +2,7 @@
 title: DNS Recon
 description: 
 published: true
-date: 2021-01-12T22:04:17.448Z
+date: 2021-01-12T22:05:14.623Z
 tags: dns, recon
 editor: markdown
 dateCreated: 2021-01-08T18:39:33.007Z
@@ -19,6 +19,7 @@ This is just a quick way to identify the domain being by the server you have acc
 
 If the server includes a reverse zone (in-addr.arpa) for itself, you can reverse resolve the IP address and possibly get the FQDN as shown below:
 
+The `-x` tells `dig` to do a reverse resolution. The `@192.168.80.10` specifies the server to query (in this case the target DNS server):
 ```
 root@kali:~# dig @192.168.80.10 -x 192.168.80.10
 
