@@ -1,8 +1,8 @@
 ---
-title: NoSQLi
+title: Web Application Attacks
 description: NOSQL Injection Payloads
 published: true
-date: 2021-01-21T03:34:38.781Z
+date: 2021-01-21T03:36:14.214Z
 tags: 
 editor: markdown
 dateCreated: 2021-01-21T03:34:38.781Z
