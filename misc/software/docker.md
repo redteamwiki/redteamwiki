@@ -29,11 +29,17 @@ When you’re installing Docker you’re actually installing a daemon socket ont
 So, let’s say a web developer Bob decides that he want’s to run his applications in a cloud environment and have everything running on docker. Well, you could just ssh into the box install docker and install the apps to run in their own containers. But to streamline product releases he decides to expose the docker daemon to the internet so he can run commands on it from his home office. (docker -H tcp://<some IP>:2375 …)  This is where the vulnerability is…Tenable calls it ‘Docker Daemon Publicly Accessible’ (or something like that). I call it opening a shell up to the internet for anyone to connect to as root…Let’s break it down.
 
 Figure 1:
+
 Running a container on a local machine:
+
 `docker run -it ubuntu:latest`
+
 Running a container with elevated privileges on your local machine:
+
 `docker run -it –privileged ubuntu:latest`
+
 Running a container on someone else’s machine with elevated privileges:
+
 `docker -H <someone else’s IP>:<port> run -it –privileged ubuntu:latest`
 
 There it is…that is the vulnerability. A gross misconfiguration of the Docker daemon that exposes it to the internet (or intranet of a company) if put into a cloud environment or allowed egress. Also with the  `--privileged` flag you’re given root access to the container which can be used in a plethora of privilege escalation attacks.
