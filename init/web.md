@@ -1,14 +1,14 @@
 ---
-title: Web Application Attacks
+title: NOSQLi Injection Payloads
 description: NOSQL Injection Payloads
 published: true
-date: 2021-01-21T03:38:28.324Z
+date: 2021-01-21T03:39:37.118Z
 tags: 
 editor: markdown
 dateCreated: 2021-01-21T03:34:38.781Z
 ---
 
-NOSQLi Injection Payloads
+
 true, $where: '1 == 1'
 ,$where: '1 == 1'
 $where: '1 == 1'
