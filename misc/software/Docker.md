@@ -2,13 +2,15 @@
 title: Docker
 description: Tactics, techniques, and procedures (TTPs) observed and tested in the wild on the exploitation of the Docker application
 published: true
-date: 2021-01-21T04:37:56.706Z
+date: 2021-01-21T04:40:49.925Z
 tags: docker, exploit, privilege-escalation, miscofiguration
 editor: markdown
 dateCreated: 2021-01-21T04:37:56.706Z
 ---
 
 # Docker Exploitation
+
+init by: Caprico (additions welcome)
 
 Docker Client Documentation: https://docs.docker.com
 
@@ -24,9 +26,9 @@ A container: This shares the kernel of the operating system to run basically alo
 
 ### Docker Socket Vulnerability
 
-When you’re installing Docker you’re actually installing a daemon socket onto your system that talks to the kernel over a tcp:// call. By default, this is setup with either ports 2375 (unencrypted) or 2376 (tls encrypted traffic). This is otherwise known as the docker socket. This socket handles all the API requests that a Docker client makes to the machine. For example, it will send to your internal socket the command `docker ps -a` and show you all of the running containers and subsequent information. At this point this is only going to be accessible to the local machine.
+When you’re installing Docker you’re actually installing a daemon socket onto your system that talks to the kernel over a `tcp://` call. By default, this is setup with either ports 2375 (unencrypted) or 2376 (tls encrypted traffic). This is otherwise known as the docker socket. This socket handles all the API requests that a Docker client makes to the machine. For example, it will send to your internal socket the command `docker ps -a` and show you all of the running containers and subsequent information. At this point this is only going to be accessible to the local machine.
 
-So, let’s say a web developer Bob decides that he want’s to run his applications in a cloud environment and have everything running on docker. Well, you could just ssh into the box install docker and install the apps to run in their own containers. But to streamline product releases he decides to expose the docker daemon to the internet so he can run commands on it from his home office. (docker -H tcp://<some IP>:2375 …)  This is where the vulnerability is…Tenable calls it ‘Docker Daemon Publicly Accessible’ (or something like that). I call it opening a shell up to the internet for anyone to connect to as root…Let’s break it down.
+So, let’s say a web developer Bob decides that he want’s to run his applications in a cloud environment and have everything running on docker. Well, you could just ssh into the box install docker and install the apps to run in their own containers. But to streamline product releases he decides to expose the docker daemon to the internet so he can run commands on it from his home office. (`docker -H tcp://<some IP>:2375 …`)  This is where the vulnerability is…Tenable calls it ‘Docker Daemon Publicly Accessible’ (or something like that). I call it opening a shell up to the internet for anyone to connect to as root…Let’s break it down.
 
 Figure 1:
 
@@ -66,7 +68,7 @@ A list of which can be found here: https://docs.docker.com/engine/reference/run/
 
 ### Mount Host File System To Containers
 
-*** !!! WARNING !!! If you do not know what you are doing you can cause damage to the host machine. Use Caution! ***  
+***!!! WARNING !!! If you do not know what you are doing you can cause damage to the host machine. Use Caution!***  
 
 
 First run a privileged container running alpine.
