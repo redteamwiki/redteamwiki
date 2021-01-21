@@ -1,8 +1,8 @@
 ---
-title: NOSQLi
-description: Web Application Attacks
+title: Web Application Attacks
+description: 
 published: true
-date: 2021-01-21T03:47:36.780Z
+date: 2021-01-21T03:50:00.052Z
 tags: web
 editor: markdown
 dateCreated: 2021-01-21T03:34:38.781Z
