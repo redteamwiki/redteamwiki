@@ -2,7 +2,7 @@
 title: NMAP
 description: How to use nmap for basic scanning 
 published: true
-date: 2021-01-21T03:28:29.890Z
+date: 2021-02-01T01:40:04.104Z
 tags: #nmap #recon #network #newtrokrecon
 editor: markdown
 dateCreated: 2021-01-21T03:28:29.890Z
@@ -42,6 +42,31 @@ EXAMPLE:
 ```
 nmap -sS $HOSTS$ --top-ports 100 -T4 --min-parallelism 100 --max-parallelism 256
 ```
+Pings ALL HOTS TO SEE IF THEY ARE UP 
+```
+nmap -sn $HOSTS$
+```
+Types of scans 
+```
+# -sS TCP SYN scan
+# -sT TCP connect scan
+# -sU UDP scans
+# -sY SCTP INIT scan
+# -sN TCP NULL
+```
+Some of the best ways to get info from nmap ios to dp an OUTPUT
+```
+# -oN <filespec> (normal output)
+# -oX <filespec> (XML output)
+# -oS <filespec> (ScRipT KIdd|3 oUTpuT)
+# -oG <filespec> (grepable output) 
+# -oA <basename> (Output to all formats)
+```
+NMAP with DNS 
+```
+namp -sL $HOSTS$
+```
+
 This breaks down to doing a SYN-SCAN to the hots you want to scan with ONLY the top 100 ports with a a agreesibing timing with a min threading of 100 and max of 256 you can go higher but there is alkways a chance to crash or cause a Denial Of Secive. 
 
 ## 3. NMAP explained 
